@@ -1,0 +1,19 @@
+header {
+  display: flex;
+  align-items: center;
+}
+
+div {
+  margin-bottom: 8px;
+  /* Отступ по умолчанию между блоками */
+}
+
+.userBlock {
+  position: absolute;
+  right: 25%;
+  width: 50%;
+}
+.exit{
+  position: absolute;
+  right: 0;
+}

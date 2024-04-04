@@ -1,0 +1,46 @@
+<div class="userBlock">
+    <mat-toolbar>
+        <header>
+            <button mat-icon-button class="home" (click)="home()">
+                <mat-icon>home</mat-icon>
+            </button>
+            <span class="username">
+                {{username}}
+            </span>
+        </header>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="exit" (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+          </button>
+    </mat-toolbar>
+
+
+    <form [formGroup]="userForm">
+        <div>
+            <label>Username: </label>
+            <span> {{user?.username}} </span>
+        </div>
+
+        <div>
+            <label>Email: </label>
+            <span> {{user?.email}} </span>
+        </div>
+        <div>
+            <label>User role: </label>
+            <span> {{user?.roles}} </span>
+        </div>
+        <div>
+            <label>New Password </label>
+            <input type="password" formControlName="newPassword">
+        </div>
+        <div>
+            <label>Confirm Password </label>
+            <input type="password" formControlName="confirmPassword">
+        </div>
+        <div>
+            <button mat-raised-button color="primary" (click)="changePassword()">Change Password</button>
+        </div>
+    </form>
+
+
+</div>

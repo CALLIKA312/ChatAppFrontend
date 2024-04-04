@@ -1,0 +1,28 @@
+<mat-toolbar>
+  <button mat-icon-button class="profile" (click)="user()">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <span class="chatLabel">Chats</span>
+  <button mat-icon-button class="new" (click)="modalService.open('modal-2')">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <jw-modal id="modal-2" class="modalFull">
+    <h1>Choose user to chat</h1>
+    <p>Здесь должен быть выбор юзера</p>
+    <div *ngFor="let user of users">
+      <div (click)="selectUser(user.userId, user.username)"
+        [ngClass]="{'selected': selectedUser?.username === user.username}">
+        {{ user.username }}
+        <span *ngIf="selectedUser?.username === user.username">✅</span>
+      </div>
+    </div>
+    <button [disabled]="areAllUsersSelected()" (click)="startChat()">Начать чат</button>
+  </jw-modal>
+
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="exit" (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>

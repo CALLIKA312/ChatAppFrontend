@@ -1,0 +1,32 @@
+.chatLabel{
+  position: absolute;
+  right: 50%;
+}
+
+.new{
+  position: absolute;
+  right: 5%;
+}
+
+.selected {
+  background-color: #e0e0e0; /* Любой цвет фона при выборе */
+  font-weight: bold; /* Любые другие стили для выделения */
+  margin-bottom: 8px; /* Отступ между именами пользователей */
+}
+
+div {
+  margin-bottom: 8px; /* Отступ по умолчанию между блоками */
+}
+.modalFull {
+  max-width: 30%; /* Задайте максимальную ширину в процентах или других единицах измерения */
+  margin: 0 auto; /* Центрировать модальное окно по горизонтали */
+}
+.exit{
+  position: absolute;
+  right: 0;
+}
+
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}

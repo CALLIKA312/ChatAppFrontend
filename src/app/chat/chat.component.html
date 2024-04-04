@@ -1,0 +1,51 @@
+<div class="mesBlock">
+    <mat-toolbar>
+        <header>
+            <button mat-icon-button class="home" (click)="home()">
+                <mat-icon>home</mat-icon>
+            </button>
+            <span class="companionUsername">
+                {{companionUsername}}
+            </span>
+        </header>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="exit" (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+          </button>
+    </mat-toolbar>
+
+
+    <div class="allMess">
+        <div *ngFor="let message of messages">
+            <div class="mes">
+                <div *ngIf="message.userId != userId; then leftMes; else rightMes"></div>
+                <ng-template #leftMes>
+                    <div class="leftMes ovalBackground">
+                        <div class="timestamp">
+                            {{ message.timestamp | date:'medium' }}
+                        </div>
+                        {{message.content}}
+                    </div>
+                </ng-template>
+                <ng-template #rightMes>
+                    <div class="rightMes ovalBackground">
+                        <div class="timestamp">
+                            {{ message.timestamp | date:'medium' }}
+                        </div>
+                        {{message.content}}
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+
+
+
+    <mat-form-field class="example-form-field">
+        <mat-label>Write here</mat-label>
+        <input matInput type="text" [(ngModel)]="value">
+        <button matSuffix mat-icon-button (click)="sendMessage()">
+            <mat-icon>send</mat-icon>
+        </button>
+    </mat-form-field>
+</div>

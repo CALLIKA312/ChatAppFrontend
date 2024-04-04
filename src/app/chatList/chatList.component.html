@@ -1,0 +1,26 @@
+<div class="chatBlock">
+  <app-header></app-header>
+  <div *ngFor="let chat of chats">
+    <mat-card>
+      <mat-card-actions>
+        <a class="a" [routerLink]="['/chat',chat.chatId]">
+          <mat-card-header>
+            <mat-card-title>{{ chat.companionUsername }}</mat-card-title>
+            <mat-card-subtitle *ngIf="chat.lastMessage != null">
+              <div class="ovalBackground" [style.background-color]="generateRandomColor()">
+                <div class="lastMessage">{{ chat.lastMessage | slice: 0:100 }}{{ chat.lastMessage.length > 100 ? '...' :
+                  '' }}</div>
+                <div class="timestamp">{{ chat.timestamp | date: 'short' }}</div>
+              </div>
+            </mat-card-subtitle>
+          </mat-card-header>
+        </a>
+        <mat-card-actions class="delete">
+          <button mat-icon-button class="delete" (click)="deleteChat(chat.chatId)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
